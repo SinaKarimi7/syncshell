@@ -1,35 +1,8 @@
-<h1 align="center">SyncShell</h1>
+SyncShell  [![Build Status](https://img.shields.io/travis/msudgh/syncshell/master.svg?style=flat)](https://travis-ci.org/msudgh/syncshell)  [ ![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg) ](https://mit-license.org/msudgh)  [ ![PyPi](https://img.shields.io/github/release/msudgh/syncshell.svg) ](https://github.com/msudgh/syncshell/releases)  [![PyPi](https://img.shields.io/pypi/v/syncshell.svg)](https://pypi.org/project/syncshell/)
+=========
+  > **Yet another tool for laziness**
 
-<div align="center">
-  <strong>Yet another tool for laziness</strong>
-</div>
-<div align="center">
-  Keep your machine's shell history synchronize
-</div>
-<br/>
-<div align="center">
-  <!-- Build Status -->
-  <a href="https://travis-ci.org/msudgh/syncshell">
-    <img src="https://img.shields.io/travis/msudgh/syncshell/master.svg?style=flat"
-      alt="Build Status" />
-  </a>
-  <!-- License -->
-  <a href="https://mit-license.org/msudgh">
-    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg"
-      alt="MIT License" />
-  </a>
-  <!-- Release -->
-  <a href="https://github.com/msudgh/syncshell/releases">
-    <img src="https://img.shields.io/github/release/msudgh/syncshell.svg"
-      alt="PyPi" />
-  </a>
-  <!-- PyPi -->
-  <a href="https://pypi.org/project/syncshell/">
-    <img src="https://img.shields.io/pypi/v/syncshell.svg"
-      alt="PyPi" />
-  </a>
-</div>
-<br/>
+Keep your machine's shell history synchronize
 
 ## Get SyncShell
 Currently, `SyncShell` is just available on `PyPi` and by the following command install the latest version:
@@ -39,7 +12,6 @@ $ pip install syncshell # Maybe sudo need
 ```bash
 $ syncshell -- --help
 Type:        Syncshell
-String form: <syncshell.syncshell.Syncshell object at 0x7fa35d7d87f0>
 
 Usage:       syncshell 
              syncshell auth

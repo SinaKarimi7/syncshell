@@ -28,8 +28,7 @@ NORMAL = '\033[0m'
 BOLD = '\033[1m'
 
 # History
-# TODO: find safe way to find out the shell name
-SHELL = os.environ.get('SHELL')
+SHELL = os.readlink('/proc/{}/exe'.format(os.getppid()))
 HISTORY_PATH = {
     'bash': '.bash_history',
     'zsh': '.zsh_history',

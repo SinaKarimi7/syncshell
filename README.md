@@ -47,6 +47,9 @@ Usage:       syncshell
              syncshell upload
 ```
 
+## Requirements
+ * Python 3+
+
 ## How it Works
 The actual idea of SyncShell is synchronization of your devices shell history, Almost, this ability will be useful when you want to sync your office and home machines. SyncShell is just built on Github `Gist` feature such that this CLI tool represents three methods to communicate with the tool.
 

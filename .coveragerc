@@ -1,0 +1,18 @@
+[run]
+branch = True
+source = 
+  syncshell/syncshell/*
+
+[report]
+exclude_lines =
+    if self.debug:
+    pragma: no cover
+    raise NotImplementedError
+    if __name__ == .__main__.:
+ignore_errors = True
+omit =
+  version.py
+  setup.py
+  tests/*
+  syncshell/__main__.py
+  syncshell/syncshell.py

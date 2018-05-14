@@ -51,6 +51,8 @@ After the uploading process, you'll take a Gist ID that by this ID and your Gith
 $ syncshell download
 ```
 
+  > After download, if your history wasn't up to date, source shell or restart your terminal.
+
 ## Todo
 - [ ] Write more test cases
 - [ ] Support `bash` and other shells

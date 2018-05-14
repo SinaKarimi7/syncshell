@@ -33,7 +33,7 @@ class Config(object):
         self.gist = None
 
         # Copy template config file to home directory
-        if os.path.exists(constants.CONFIG_PATH) is False:
+        if not os.path.exists(constants.CONFIG_PATH):
             copy(constants.CONFIG_PATH_TEMPLATE, constants.CONFIG_PATH)
 
     def __deepcopy__(self, memo):
@@ -49,8 +49,7 @@ class Config(object):
             if (not self.parser['Shell']['name'] or
                     not self.parser['Shell']['path']):
                 # Extract shell name
-                regex = r"([^/]*$)"
-                matches = re.search(regex, constants.SHELL)
+                matches = re.search(r"([^/]*$)", constants.SHELL)
                 shell = matches.group() or 'zsh'
 
                 self.parser['Shell']['name'] = shell
@@ -72,13 +71,10 @@ class Config(object):
         try:
             with open(self.path, 'w') as file:
                 self.parser.write(file)
-                file.close()
 
             return True
         except:
             logger.error('Unable to set config file.')
-
-            return False
             sys.exit(1)
 
     def check_authorization(self, spinner=False, callback=False):
@@ -86,14 +82,11 @@ class Config(object):
             # Check username exist
             self.gist.get_user().login
 
-            message = 'Your Github token key authorized and confirmed.'
-            if spinner and callback: callback(spinner, message, 'succeed')
+            if spinner and callback: callback(spinner, 'Your Github token key authorized and confirmed.', 'succeed')
 
             return True
         except:
-            message = 'You\'re token key isn\'t authorized'
-
-            if spinner and callback: callback(spinner, message, 'fail')
+            if spinner and callback: callback(spinner, 'You\'re token key isn\'t authorized', 'fail')
             else: logger.error(message)
 
             sys.exit(1)

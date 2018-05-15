@@ -3,6 +3,7 @@
 # constants.py: contain syncshell's consts
 import os
 from pathlib import Path
+import re
 
 # Metainfo
 APP_NAME = 'syncshell'
@@ -27,8 +28,11 @@ WHITE = '\033[97m'
 NORMAL = '\033[0m'
 BOLD = '\033[1m'
 
+# Shell
+SHELL_PATH = os.readlink('/proc/{}/exe'.format(os.getppid()))
+SHELL = re.search(r"([^/]*$)", SHELL_PATH).group()
+
 # History
-SHELL = os.readlink('/proc/{}/exe'.format(os.getppid()))
 HISTORY_PATH = {
     'bash': '.bash_history',
     'zsh': '.zsh_history',

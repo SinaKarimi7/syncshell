@@ -45,18 +45,7 @@ class Config(object):
             self.parser.read(self.path)
             self.gist = Github(self.parser['Auth']['token'])
 
-            # Set Shell and write new config
-            if (not self.parser['Shell']['name'] or
-                    not self.parser['Shell']['path']):
-                # Extract shell name
-                matches = re.search(r"([^/]*$)", constants.SHELL)
-                shell = matches.group() or 'zsh'
-
-                self.parser['Shell']['name'] = shell
-                self.parser['Shell']['path'] = constants.HISTORY_PATH[shell]
-
-                self.write()
-
+            self.write()
             return True
         except:
             logger.error('Unable to read config file.')
@@ -69,6 +58,10 @@ class Config(object):
         self.path = path or constants.CONFIG_PATH
 
         try:
+            # Set Shell and write new config
+            if (not self.parser['Shell']['name'] or
+                    not self.parser['Shell']['path']):
+                self.set_shell()
             with open(self.path, 'w') as file:
                 self.parser.write(file)
 
@@ -90,3 +83,10 @@ class Config(object):
             else: logger.error(message)
 
             sys.exit(1)
+
+    def set_shell(self):
+        ''' Set shell section configuration '''
+        self.parser['Shell']['name'] = constants.SHELL
+        self.parser['Shell']['path'] = constants.HISTORY_PATH[constants.SHELL]
+
+        return True

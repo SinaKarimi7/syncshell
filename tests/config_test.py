@@ -44,3 +44,14 @@ def test_writing_configuration():
 
     # assert values
     assert (config.parser['Auth']['Token'] == 'TEST')
+
+@pytest.mark.config
+def test_shell_name_specified():
+    ''' Check the shell name and path specified or not
+
+    '''
+    config = Config(constants.CONFIG_PATH_TEMPLATE)
+    config.read()
+
+    # assert values
+    assert (constants.SHELL), 'Shell name doesn\'t specified'
